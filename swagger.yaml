@@ -1,0 +1,531 @@
+swagger: '2.0'
+info:
+  title: Django apps
+  description: Car_platform
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: myemail@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: 127.0.0.1:8000
+schemes:
+  - http
+basePath: /api/v1
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  Basic:
+    type: basic
+security:
+  - Basic: []
+paths:
+  /car_platform/cars/:
+    get:
+      operationId: car_platform_cars_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Car'
+      tags:
+        - car_platform
+    post:
+      operationId: car_platform_cars_create
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Car'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Car'
+      tags:
+        - car_platform
+    parameters: []
+  /car_platform/cars/{id}/:
+    get:
+      operationId: car_platform_cars_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Car'
+      tags:
+        - car_platform
+    put:
+      operationId: car_platform_cars_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Car'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Car'
+      tags:
+        - car_platform
+    patch:
+      operationId: car_platform_cars_partial_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Car'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Car'
+      tags:
+        - car_platform
+    delete:
+      operationId: car_platform_cars_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - car_platform
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this car.
+        required: true
+        type: integer
+  /car_platform/features/:
+    get:
+      operationId: car_platform_features_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Feature'
+      tags:
+        - car_platform
+    post:
+      operationId: car_platform_features_create
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Feature'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Feature'
+      tags:
+        - car_platform
+    parameters: []
+  /car_platform/features/{id}/:
+    get:
+      operationId: car_platform_features_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Feature'
+      tags:
+        - car_platform
+    put:
+      operationId: car_platform_features_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Feature'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Feature'
+      tags:
+        - car_platform
+    patch:
+      operationId: car_platform_features_partial_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Feature'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Feature'
+      tags:
+        - car_platform
+    delete:
+      operationId: car_platform_features_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - car_platform
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this feature.
+        required: true
+        type: integer
+  /token/refresh/:
+    post:
+      operationId: token_refresh_create
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TokenRefresh'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/TokenRefresh'
+      tags:
+        - token
+    parameters: []
+  /users/login/:
+    post:
+      operationId: users_login_create
+      description: View to authenticate and obtain an access token
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UserToken'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/UserToken'
+      tags:
+        - users
+    parameters: []
+  /users/passport/:
+    post:
+      operationId: users_passport_create
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Passport'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Passport'
+      tags:
+        - users
+    parameters: []
+  /users/passport/{id}/:
+    get:
+      operationId: users_passport_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Passport'
+      tags:
+        - users
+    put:
+      operationId: users_passport_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Passport'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Passport'
+      tags:
+        - users
+    patch:
+      operationId: users_passport_partial_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Passport'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Passport'
+      tags:
+        - users
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+  /users/user/:
+    post:
+      operationId: users_user_create
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - users
+    parameters: []
+  /users/user/{id}/:
+    get:
+      operationId: users_user_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - users
+    put:
+      operationId: users_user_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - users
+    patch:
+      operationId: users_user_partial_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - users
+    delete:
+      operationId: users_user_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - users
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this user.
+        required: true
+        type: integer
+definitions:
+  Car:
+    required:
+      - model
+      - engine_power
+      - price
+      - features
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      model:
+        title: Car model name
+        type: string
+        maxLength: 100
+        minLength: 1
+      engine_power:
+        title: Car engine power
+        type: integer
+        maximum: 32767
+        minimum: 0
+      description:
+        title: Car description
+        type: string
+        maxLength: 250
+        minLength: 1
+        x-nullable: true
+      price:
+        title: Price
+        type: integer
+        maximum: 2147483647
+        minimum: 0
+      features:
+        type: array
+        items:
+          type: integer
+        uniqueItems: true
+  Feature:
+    required:
+      - name
+      - description
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Feature name
+        type: string
+        maxLength: 100
+        minLength: 1
+      description:
+        title: Feature description
+        type: string
+        maxLength: 100
+        minLength: 1
+  TokenRefresh:
+    required:
+      - refresh
+    type: object
+    properties:
+      refresh:
+        title: Refresh
+        type: string
+        minLength: 1
+      access:
+        title: Access
+        type: string
+        readOnly: true
+        minLength: 1
+  UserToken:
+    required:
+      - username
+      - password
+    type: object
+    properties:
+      username:
+        title: Username
+        type: string
+        minLength: 1
+      password:
+        title: Password
+        type: string
+        minLength: 1
+  Passport:
+    required:
+      - passport_number
+      - identification_number
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      passport_number:
+        title: Passport number
+        type: string
+        maxLength: 9
+        minLength: 1
+      identification_number:
+        title: Identification number
+        type: string
+        maxLength: 20
+        minLength: 1
+  User:
+    required:
+      - username
+      - password
+      - phone_number
+    type: object
+    properties:
+      email:
+        title: Email address
+        type: string
+        format: email
+        maxLength: 254
+      username:
+        title: Username
+        description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+        type: string
+        pattern: ^[\w.@+-]+$
+        maxLength: 150
+        minLength: 1
+      password:
+        title: Password
+        type: string
+        maxLength: 128
+        minLength: 1
+      first_name:
+        title: First name
+        type: string
+        maxLength: 150
+      last_name:
+        title: Last name
+        type: string
+        maxLength: 150
+      phone_number:
+        title: Phone number
+        type: string
+        pattern: ^\+1?\d{9,15}$
+        maxLength: 15
+        minLength: 1

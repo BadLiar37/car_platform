@@ -1,0 +1,6 @@
+**/.gitignore
+**/.pre-commit-config.yaml
+**/.git
+**/.flake8
+**/data
+**/.idea
